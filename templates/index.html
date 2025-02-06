@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blenderbot チャットボット</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            min-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Blenderbot チャットボット</h1>
+    <form id="chat-form">
+        <input type="text" id="user-input" name="user_input" placeholder="メッセージを入力" required>
+        <button type="submit">送信</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        $(document).ready(function () {
+            $('#chat-form').on('submit', function (e) {
+                e.preventDefault();
+                var userInput = $('#user-input').val();
+
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    data: { user_input: userInput },
+                    success: function (data) {
+                        $('#response').text('Response: ' + data.response);
+                    },
+                    error: function () {
+                        $('#response').text('エラーが発生しました');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

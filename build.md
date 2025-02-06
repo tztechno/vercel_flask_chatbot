@@ -27,4 +27,17 @@ git remote -v
 
 git push -u origin main
 
+
+
+git stash
+
+git pull --rebase origin main
+
+git stash pop
+
+git add .
+git commit -m "Resolve conflicts and update"
+
+git push origin main
+
 ```

@@ -7,12 +7,8 @@ from torch.utils.data import DataLoader, Dataset
 app = Flask(__name__)
 
 # Load model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
-model = AutoModelForSeq2SeqLM.from_pretrained("facebook/blenderbot-400M-distill")
-
-# Set device
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
+tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-2.7B")
+model = AutoModelForSeq2SeqLM.from_pretrained("facebook/blenderbot-2.7B")
 
 def tokenize_data(inputs, tokenizer, max_length=64):
     input_encodings = tokenizer(

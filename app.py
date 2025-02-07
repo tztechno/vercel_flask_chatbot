@@ -11,8 +11,8 @@ app = Flask(__name__)
 
 # Load model and tokenizer
 try:
-    tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-2.7B")
-    model = AutoModelForSeq2SeqLM.from_pretrained("facebook/blenderbot-2.7B").to(device)
+    tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-90M")
+    model = AutoModelForSeq2SeqLM.from_pretrained("facebook/blenderbot-90M").to(device)
 except Exception as e:
     print(f"Model loading error: {e}")
     model = None

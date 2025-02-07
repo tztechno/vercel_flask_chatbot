@@ -14,6 +14,10 @@ git remote add origin https://github.com/ユーザー名/リポジトリ名.git
 git push -u origin main
 
 
+used model
+facebook/blenderbot-90M
+
+
 vercel deploy失敗
 Running build in Washington, D.C., USA (East) – iad1
 Cloning github.com/tztechno/vercel_flask_chatbot (Branch: main, Commit: 0e26ff3)
